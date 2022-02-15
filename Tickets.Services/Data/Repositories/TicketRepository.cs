@@ -33,7 +33,7 @@ namespace Tickets.Services.Data
 
         public async Task<Ticket> DeleteAsync(Ticket ticket)
         {
-            await CheckTicketExists(ticket);
+            var ticketToDelete = await CheckTicketExists(ticket);
 
             _db.Tickets.Remove(ticket);
 
@@ -47,9 +47,15 @@ namespace Tickets.Services.Data
         public async Task<Ticket> EditAsync(Ticket ticket)
         {
 
-            await CheckTicketExists(ticket);
+            var ticketToUpdate = await CheckTicketExists(ticket);
 
-            ticket.DateUpdated = DateTime.Now;
+            ticketToUpdate.EmployeeId = ticket.EmployeeId;
+            ticketToUpdate.Title = ticket.Title;
+            ticketToUpdate.ProjectId = ticket.ProjectId;
+            ticketToUpdate.Description = ticket.Description;
+            ticketToUpdate.TimeSpend = ticket.TimeSpend;
+            ticketToUpdate.TimeRemaining = ticket.TimeRemaining;
+            ticketToUpdate.DateUpdated = DateTime.Now;
 
             _db.Tickets.Update(ticket);
 
@@ -63,12 +69,16 @@ namespace Tickets.Services.Data
             return await _db.Tickets.FindAsync(id);
         }
 
-        private async Task CheckTicketExists(Ticket ticket)
+        private async Task<Ticket> CheckTicketExists(Ticket ticket)
         {
-            if (await _db.Tickets.FindAsync(ticket.TicketId) == null)
+            var result = await _db.Tickets.FindAsync(ticket.TicketId);
+
+            if (result == null)
             {
                 throw new ApplicationException("Ticket not found.");
             }
+
+            return result;
         }
     }
 }

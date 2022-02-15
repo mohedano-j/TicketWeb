@@ -15,9 +15,6 @@ type propsType = {
 
 export const NavMenu = (props: propsType) => {
 	const { expanded } = props;
-	const [showStudent, toggleShowStudent] = useToggle(true);
-	const [showAdmin, toggleShowAdmin] = useToggle(false);
-	const [showRecentSearch, toggleShowRecentSearch] = useToggle(true);
 
 	const { perm } = useParams<{ perm: string }>();
 	const _history = useNavigate();
@@ -32,7 +29,7 @@ export const NavMenu = (props: propsType) => {
 						<Link to="/">Home</Link>
 					</li>
 					<li className="sidebar-header">
-						<Link to="/Grades">Grades</Link>
+						<Link to="/Projects">Projects</Link>
 					</li>
 					<li className="sidebar-header">
 						<Link to="/Transcripts">Unnofficial Transcripts</Link>

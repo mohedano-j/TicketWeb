@@ -25,7 +25,7 @@ module.exports = {
 		}),
 		new webpack.DefinePlugin({
 			"process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-			"process.env.API_URL": JSON.stringify("/formerstudents/api"),
+			"process.env.API_URL": JSON.stringify("/api"),
 		}),
 		new HtmlWebpackPlugin({
 			template: "src/index.html",

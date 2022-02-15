@@ -15,6 +15,12 @@ namespace Tickets.Web.Controllers
             _projectService = projectsService;
         }
 
+        [HttpGet]
+        public async Task<List<Project>> GetAsync()
+        {
+            return await _projectService.GetAsync();
+        }
+
         // GET: api/<ProjectsController>/id
         [HttpGet("{id}")]
         public async Task<Project> GetAsync(int id)

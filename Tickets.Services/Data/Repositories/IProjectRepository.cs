@@ -8,6 +8,8 @@ namespace Tickets.Services.Data
 {
     public interface IProjectRepository
     {
+        Task<List<Project>> GetAsync();
+
         Task<Project> GetAsync(int id);
 
         Task<Project> AddAsync(Project Project);

@@ -56,39 +56,16 @@ th {
   .margin-header {
     margin-left: 240px;
     margin-top: 66px;
+    height: 90%;
   }
 }
 
-/* https://github.com/Hacker0x01/react-datepicker/issues/1674 */
-
-.react-datepicker-popper {
-    z-index: 2;
-    top: 34px !important;
-}
-
-.react-datepicker-wrapper,
-.react-datepicker-wrapper .react-datepicker__input-container {
-    width: 100%;
-    display: inline;
-}
-
-.date.form-group .input-group-addon {
-    cursor: pointer;
-}
-
-.date.form-group .input-group-addon:hover {
-    opacity: 0.8;
-}
-
-.red {
-   background-color:red;
-   border: 1px solid darkred;
-}
-
-.brand-container {
-    background: #003660;
-}
-
-.badge-lg {
-    font-size: 1.2em;
+.data-grid-responsive{
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: 100% ;
+  @media (min-width: 480px) {
+    height: 80vh;
+  }
 }

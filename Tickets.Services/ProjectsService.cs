@@ -35,5 +35,10 @@ namespace Tickets.Services
         {
             return await _projectRepository.GetAsync(id);
         }
+
+        public async Task<List<Project>> GetAsync()
+        {
+            return await _projectRepository.GetAsync();
+        }
     }
 }

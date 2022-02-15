@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,27 +34,28 @@ namespace Tickets.Services.Data
 
         public async Task<Project> DeleteAsync(Project project)
         {
-            await CheckProjectExists(project);
+            var projectToDelete = await CheckProjectExists(project);
 
-            _db.Projects.Remove(project);
+            _db.Projects.Remove(projectToDelete);
 
             await _db.SaveChangesAsync();
 
-            return project;
+            return projectToDelete;
         }
 
         public async Task<Project> EditAsync(Project project)
         {
 
-            await CheckProjectExists(project);
+            var projectToEdit = await CheckProjectExists(project);
 
-            project.DateUpdated = DateTime.Now;
-
-            _db.Projects.Update(project);
+            projectToEdit.ProjectName = project.ProjectName;
+            projectToEdit.Description = project.Description;
+            projectToEdit.StatusCode = project.StatusCode;
+            projectToEdit.DateUpdated = DateTime.Now;
 
             await _db.SaveChangesAsync();
 
-            return project;
+            return projectToEdit;
         }
 
         public async Task<Project> GetAsync(int id)
@@ -61,12 +63,20 @@ namespace Tickets.Services.Data
             return await _db.Projects.FindAsync(id);
         }
 
-        private async Task CheckProjectExists(Project project)
+        public async Task<List<Project>> GetAsync()
         {
-            if (await _db.Projects.FindAsync(project.ProjectId) == null)
+            return await _db.Projects.Include(s=>s.Status).ToListAsync();
+        }
+
+        private async Task<Project> CheckProjectExists(Project project)
+        {
+            var result = await _db.Projects.FindAsync(project.ProjectId);
+            if (result == null)
             {
                 throw new ApplicationException("Project not found.");
             }
+
+            return result;
         }
     }
 }

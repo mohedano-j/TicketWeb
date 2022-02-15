@@ -8,6 +8,8 @@ namespace Tickets.Services
 {
     public interface IProjectsService
     {
+        Task<List<Project>> GetAsync();
+
         Task<Project> GetAsync(int id);
 
         Task<Project> AddAsync(Project project);
