@@ -31,7 +31,7 @@ namespace Tickets.Services.Data.Configurations
                 .HasMaxLength(1)
                 .IsFixedLength();
 
-            entity.HasOne(d => d.StatusCodeNavigation)
+            entity.HasOne(d => d.Status)
                 .WithMany()
                 .HasForeignKey(d => d.StatusCode)
                 .OnDelete(DeleteBehavior.ClientSetNull)

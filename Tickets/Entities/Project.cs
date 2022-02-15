@@ -30,7 +30,7 @@ namespace Tickets
         public DateTime? DateUpdated { get; set; }
 
         [ForeignKey(nameof(StatusCode))]
-        public virtual Status StatusCodeNavigation { get; set; }
+        public virtual Status Status { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
     }

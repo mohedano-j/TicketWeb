@@ -9,13 +9,13 @@ using Tickets.Services.Data.Configurations;
 
 namespace Tickets.Services.Data
 {
-    public partial class TicketsystemContext : DbContext
+    public partial class TicketSystemContext : DbContext
     {
-        public TicketsystemContext()
+        public TicketSystemContext()
         {
         }
 
-        public TicketsystemContext(DbContextOptions<TicketsystemContext> options)
+        public TicketSystemContext(DbContextOptions<TicketSystemContext> options)
             : base(options)
         {
         }

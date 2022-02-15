@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="93" failures="0" time="122.458">
+  <testsuite name="PrettyDate Function" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="20.325" tests="9">
+    <testcase classname="PrettyDate Function Date object" name="PrettyDate Function Date object" time="0.012">
+    </testcase>
+    <testcase classname="PrettyDate Function Null object" name="PrettyDate Function Null object" time="0.001">
+    </testcase>
+    <testcase classname="PrettyDate Function Undefined object" name="PrettyDate Function Undefined object" time="0">
+    </testcase>
+    <testcase classname="PrettyTime Function Date object" name="PrettyTime Function Date object" time="0.001">
+    </testcase>
+    <testcase classname="PrettyTime Function Null object" name="PrettyTime Function Null object" time="0">
+    </testcase>
+    <testcase classname="PrettyTime Function Undefined object" name="PrettyTime Function Undefined object" time="0.001">
+    </testcase>
+    <testcase classname="PrettyDateTime Function Date object" name="PrettyDateTime Function Date object" time="0">
+    </testcase>
+    <testcase classname="PrettyDateTime Function Null object" name="PrettyDateTime Function Null object" time="0">
+    </testcase>
+    <testcase classname="PrettyDateTime Function Undefined object" name="PrettyDateTime Function Undefined object" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="ApiError ToFormikErrors Function" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:37" time="1.147" tests="7">
+    <testcase classname="ApiError ToFormikErrors Function Key to Camel case" name="ApiError ToFormikErrors Function Key to Camel case" time="0.002">
+    </testcase>
+    <testcase classname="ApiError ToFormikErrors Function Errors are concatenated" name="ApiError ToFormikErrors Function Errors are concatenated" time="0">
+    </testcase>
+    <testcase classname="ApiError ToFormikErrors Function One error with no &lt;br/&gt;" name="ApiError ToFormikErrors Function One error with no &lt;br/&gt;" time="0">
+    </testcase>
+    <testcase classname="ApiError ToFormikErrors Function No errors" name="ApiError ToFormikErrors Function No errors" time="0.002">
+    </testcase>
+    <testcase classname="ApiError ToFormikTouched Function Key to Camel case" name="ApiError ToFormikTouched Function Key to Camel case" time="0">
+    </testcase>
+    <testcase classname="ApiError ToFormikTouched Function Value is true" name="ApiError ToFormikTouched Function Value is true" time="0.008">
+    </testcase>
+    <testcase classname="ApiError ToFormikTouched Function No errors" name="ApiError ToFormikTouched Function No errors" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Sorting Function" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:39" time="1.019" tests="4">
+    <testcase classname="Sorting Function Sort Number asc" name="Sorting Function Sort Number asc" time="0.001">
+    </testcase>
+    <testcase classname="Sorting Function Sort Number desc" name="Sorting Function Sort Number desc" time="0">
+    </testcase>
+    <testcase classname="Sorting Function Sort String asc" name="Sorting Function Sort String asc" time="0">
+    </testcase>
+    <testcase classname="Sorting Function Sort Number desc" name="Sorting Function Sort Number desc" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:40" time="47.925" tests="3">
+    <testcase classname="Table When empty list then show no records" name="Table When empty list then show no records" time="0.131">
+    </testcase>
+    <testcase classname="Table When list has values then show correct number of rows" name="Table When list has values then show correct number of rows" time="0.274">
+    </testcase>
+    <testcase classname="Table When list has values then correct number of rows with pagination" name="Table When list has values then correct number of rows with pagination" time="0.449">
+    </testcase>
+  </testsuite>
+  <testsuite name="TableRow" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="71.313" tests="5">
+    <testcase classname="TableRow When render then success" name="TableRow When render then success" time="0.136">
+    </testcase>
+    <testcase classname="TableRow When model is passed then columns are correct" name="TableRow When model is passed then columns are correct" time="0.428">
+    </testcase>
+    <testcase classname="TableRow When no function then Edit and Delete button are hidden" name="TableRow When no function then Edit and Delete button are hidden" time="0.034">
+    </testcase>
+    <testcase classname="TableRow When function is passed then Edit and Delete button work" name="TableRow When function is passed then Edit and Delete button work" time="0.407">
+    </testcase>
+    <testcase classname="TableRow When clicking header then sorting function is called" name="TableRow When clicking header then sorting function is called" time="0.025">
+    </testcase>
+  </testsuite>
+  <testsuite name="System Quarter" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:48:28" time="1.057" tests="19">
+    <testcase classname="System Quarter Pretty Name &quot;20204&quot; expect &quot;Fall 2020&quot;" name="System Quarter Pretty Name &quot;20204&quot; expect &quot;Fall 2020&quot;" time="0.003">
+    </testcase>
+    <testcase classname="System Quarter Pretty Name &quot;20203&quot; expect &quot;Summer 2020&quot;" name="System Quarter Pretty Name &quot;20203&quot; expect &quot;Summer 2020&quot;" time="0.001">
+    </testcase>
+    <testcase classname="System Quarter Pretty Name &quot;20212 &quot; expect &quot;Spring 2021&quot;" name="System Quarter Pretty Name &quot;20212 &quot; expect &quot;Spring 2021&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter Pretty Name &quot;20241&quot; expect &quot;Winter 2024&quot;" name="System Quarter Pretty Name &quot;20241&quot; expect &quot;Winter 2024&quot;" time="0.001">
+    </testcase>
+    <testcase classname="System Quarter Pretty Name &quot;aaaa&quot; expect &quot;-&quot;" name="System Quarter Pretty Name &quot;aaaa&quot; expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter Pretty Name undefined expect &quot;-&quot;" name="System Quarter Pretty Name undefined expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter Short Name &quot;20204&quot; expect &quot;F20&quot;" name="System Quarter Short Name &quot;20204&quot; expect &quot;F20&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter Short Name &quot;20203&quot; expect &quot;S20&quot;" name="System Quarter Short Name &quot;20203&quot; expect &quot;S20&quot;" time="0.007">
+    </testcase>
+    <testcase classname="System Quarter Short Name &quot;20212 &quot; expect &quot;S21&quot;" name="System Quarter Short Name &quot;20212 &quot; expect &quot;S21&quot;" time="0.001">
+    </testcase>
+    <testcase classname="System Quarter Short Name &quot;20241&quot; expect &quot;W24&quot;" name="System Quarter Short Name &quot;20241&quot; expect &quot;W24&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter Short Name &quot;aaaa&quot; expect &quot;-&quot;" name="System Quarter Short Name &quot;aaaa&quot; expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter Short Name undefined expect &quot;-&quot;" name="System Quarter Short Name undefined expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="System Quarter IsValid &quot;20204&quot; expect true" name="System Quarter IsValid &quot;20204&quot; expect true" time="0.001">
+    </testcase>
+    <testcase classname="System Quarter IsValid &quot;20203&quot; expect true" name="System Quarter IsValid &quot;20203&quot; expect true" time="0">
+    </testcase>
+    <testcase classname="System Quarter IsValid &quot;20212 &quot; expect true" name="System Quarter IsValid &quot;20212 &quot; expect true" time="0">
+    </testcase>
+    <testcase classname="System Quarter IsValid &quot;20241&quot; expect true" name="System Quarter IsValid &quot;20241&quot; expect true" time="0">
+    </testcase>
+    <testcase classname="System Quarter IsValid &quot;20246&quot; expect false" name="System Quarter IsValid &quot;20246&quot; expect false" time="0.001">
+    </testcase>
+    <testcase classname="System Quarter IsValid &quot;aaaa&quot; expect false" name="System Quarter IsValid &quot;aaaa&quot; expect false" time="0">
+    </testcase>
+    <testcase classname="System Quarter IsValid undefined expect false" name="System Quarter IsValid undefined expect false" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="SystemDateTime" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:48:28" time="1.11" tests="14">
+    <testcase classname="SystemDateTime Pretty Name &quot;20200401&quot; expect &quot;04/01/2020&quot;" name="SystemDateTime Pretty Name &quot;20200401&quot; expect &quot;04/01/2020&quot;" time="0.006">
+    </testcase>
+    <testcase classname="SystemDateTime Pretty Name &quot;20211121&quot; expect &quot;11/21/2021&quot;" name="SystemDateTime Pretty Name &quot;20211121&quot; expect &quot;11/21/2021&quot;" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime Pretty Name &quot;20211321&quot; expect &quot;-&quot;" name="SystemDateTime Pretty Name &quot;20211321&quot; expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime Pretty Name &quot;202122 &quot; expect &quot;-&quot;" name="SystemDateTime Pretty Name &quot;202122 &quot; expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime Pretty Name &quot;20244111&quot; expect &quot;-&quot;" name="SystemDateTime Pretty Name &quot;20244111&quot; expect &quot;-&quot;" time="0.001">
+    </testcase>
+    <testcase classname="SystemDateTime Pretty Name &quot;aaaa&quot; expect &quot;-&quot;" name="SystemDateTime Pretty Name &quot;aaaa&quot; expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime Pretty Name undefined expect &quot;-&quot;" name="SystemDateTime Pretty Name undefined expect &quot;-&quot;" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid &quot;20200401&quot; expect true" name="SystemDateTime IsValid &quot;20200401&quot; expect true" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid &quot;20211121&quot; expect true" name="SystemDateTime IsValid &quot;20211121&quot; expect true" time="0.001">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid &quot;20211321&quot; expect false" name="SystemDateTime IsValid &quot;20211321&quot; expect false" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid &quot;202122 &quot; expect false" name="SystemDateTime IsValid &quot;202122 &quot; expect false" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid &quot;20244111&quot; expect false" name="SystemDateTime IsValid &quot;20244111&quot; expect false" time="0">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid &quot;aaaa&quot; expect false" name="SystemDateTime IsValid &quot;aaaa&quot; expect false" time="0.001">
+    </testcase>
+    <testcase classname="SystemDateTime IsValid undefined expect false" name="SystemDateTime IsValid undefined expect false" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="SearchPage" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="74.812" tests="4">
+    <testcase classname="SearchPage When renders then success" name="SearchPage When renders then success" time="0.07">
+    </testcase>
+    <testcase classname="SearchPage When search by name then success" name="SearchPage When search by name then success" time="0.829">
+    </testcase>
+    <testcase classname="SearchPage When search by perm then success" name="SearchPage When search by perm then success" time="0.243">
+    </testcase>
+    <testcase classname="SearchPage When clear search then success" name="SearchPage When clear search then success" time="0.331">
+    </testcase>
+  </testsuite>
+  <testsuite name="ErrorContainer" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:48:29" time="5.384" tests="1">
+    <testcase classname="ErrorContainer When renders then success" name="ErrorContainer When renders then success" time="0.022">
+    </testcase>
+  </testsuite>
+  <testsuite name="App is rendering" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:48:29" time="6.673" tests="1">
+    <testcase classname="App is rendering When renders then success" name="App is rendering When renders then success" time="0.12">
+    </testcase>
+  </testsuite>
+  <testsuite name="NotesPage" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="79.074" tests="6">
+    <testcase classname="NotesPage When renders then success" name="NotesPage When renders then success" time="0.081">
+    </testcase>
+    <testcase classname="NotesPage When renders then note list is displayed" name="NotesPage When renders then note list is displayed" time="0.278">
+    </testcase>
+    <testcase classname="NotesPage When add note then success" name="NotesPage When add note then success" time="1.571">
+    </testcase>
+    <testcase classname="NotesPage When add empty note then failed" name="NotesPage When add empty note then failed" time="0.819">
+    </testcase>
+    <testcase classname="NotesPage When edit note then success" name="NotesPage When edit note then success" time="1.078">
+    </testcase>
+    <testcase classname="NotesPage When delete note then success" name="NotesPage When delete note then success" time="1.856">
+    </testcase>
+  </testsuite>
+  <testsuite name="ErrorContainer" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:48:32" time="4.609" tests="1">
+    <testcase classname="ErrorContainer When renders then success" name="ErrorContainer When renders then success" time="0.018">
+    </testcase>
+  </testsuite>
+  <testsuite name="Degree Audit" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="88.083" tests="6">
+    <testcase classname="Degree Audit When renders then success" name="Degree Audit When renders then success" time="1.468">
+    </testcase>
+    <testcase classname="Degree Audit When renders then degree audit list is displayed" name="Degree Audit When renders then degree audit list is displayed" time="1.251">
+    </testcase>
+    <testcase classname="Degree Audit When renders selecting degree audit and click publish, degree audit is published" name="Degree Audit When renders selecting degree audit and click publish, degree audit is published" time="4.448">
+    </testcase>
+    <testcase classname="Degree Audit When renders selecting degree audit and click delete, list is refreshed" name="Degree Audit When renders selecting degree audit and click delete, list is refreshed" time="4.051">
+    </testcase>
+    <testcase classname="Degree Audit When click run audit, runJob is called in Redux, " name="Degree Audit When click run audit, runJob is called in Redux, " time="0.919">
+    </testcase>
+    <testcase classname="Degree Audit When renders selecting NSP and clicked Delete, NSP is deleted" name="Degree Audit When renders selecting NSP and clicked Delete, NSP is deleted" time="2.437">
+    </testcase>
+  </testsuite>
+  <testsuite name="ExceptionPage" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="88.214" tests="11">
+    <testcase classname="ExceptionPage When render then success" name="ExceptionPage When render then success" time="0.1">
+    </testcase>
+    <testcase classname="ExceptionPage When render then exception tables are loaded" name="ExceptionPage When render then exception tables are loaded" time="0.568">
+    </testcase>
+    <testcase classname="ExceptionPage When add course exception then success" name="ExceptionPage When add course exception then success" time="3.458">
+    </testcase>
+    <testcase classname="ExceptionPage When add institutional exception then success" name="ExceptionPage When add institutional exception then success" time="3.255">
+    </testcase>
+    <testcase classname="ExceptionPage When add language exception then success" name="ExceptionPage When add language exception then success" time="0.956">
+    </testcase>
+    <testcase classname="ExceptionPage When edit course exception then success" name="ExceptionPage When edit course exception then success" time="0.46">
+    </testcase>
+    <testcase classname="ExceptionPage When edit institutional exception then success" name="ExceptionPage When edit institutional exception then success" time="0.718">
+    </testcase>
+    <testcase classname="ExceptionPage When edit language exception then success" name="ExceptionPage When edit language exception then success" time="1.194">
+    </testcase>
+    <testcase classname="ExceptionPage When delete course exception then success" name="ExceptionPage When delete course exception then success" time="1.059">
+    </testcase>
+    <testcase classname="ExceptionPage When delete institutional exception then success" name="ExceptionPage When delete institutional exception then success" time="0.995">
+    </testcase>
+    <testcase classname="ExceptionPage When delete language exception then success" name="ExceptionPage When delete language exception then success" time="1.948">
+    </testcase>
+  </testsuite>
+  <testsuite name="React-Testing-TermsPage" errors="0" failures="0" skipped="0" timestamp="2020-11-19T16:47:17" time="109.46" tests="2">
+    <testcase classname="React-Testing-TermsPage When renders then correct number of institutions" name="React-Testing-TermsPage When renders then correct number of institutions" time="33.567">
+    </testcase>
+    <testcase classname="React-Testing-TermsPage  When selecting instituition then  correct number of terms" name="React-Testing-TermsPage  When selecting instituition then  correct number of terms" time="2.43">
+    </testcase>
+  </testsuite>
+</testsuites>
