@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Input, Label, Row, Spinner } from "reactstrap";
 import { ErrorContainer, TicketsTable } from "..";
-import {Employee, Project, ProjectFromJSON, ProjectToJSON, Status, Ticket} from "../../models";
+import {Employee, Project, ProjectFromJSON, ProjectToJSON, Status, Ticket, TicketFromJSON} from "../../models";
 import { useEmployeesProxy, useProjectsProxy, useStatusProxy,useTicketsProxy  } from "../../proxies";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
@@ -112,11 +112,12 @@ export const TicketsPage = () => {
 	},[paramProjectIdNumber]);
 
 	const handleAddClick = ()=>{
-		const newProject = ProjectFromJSON({projectId:0});
-		//setSelectedProject(newProject);
+		const newTicket = TicketFromJSON({ticketId:0, projectId: selectedProjectId});
+		setSelectedTicket(newTicket);
 	}
 
 	const handleSave = (ticket:Ticket)=>{
+		if(ticket.employeeId == 0) ticket.employeeId = null; //Remove unasigned Employee.
 		if(ticket.ticketId === 0){
 			ticketProxy.add(ticket).subscribe(
 				(resp: Ticket) => {
@@ -134,7 +135,7 @@ export const TicketsPage = () => {
 				(resp: Ticket) => {
 					if(tickets)
 					{
-						const ticketAux = tickets.map((ticket) => (resp && ticket.ticketId == resp.projectId ? resp : ticket));
+						const ticketAux = tickets.map((ticket) => (resp && ticket.ticketId == resp.ticketId ? resp : ticket));
 						setTickets(ticketAux);
 						setSelectedTicket(ticket)
 						toast.success("Ticket " + resp.title + "  modified!");
@@ -185,8 +186,17 @@ export const TicketsPage = () => {
 						</Col>
 					</Row>
 				</div>
+				
 				{ticketProxy.working && <Spinner/>}
-				{selectedProjectId !== 0 && !ticketProxy.working && ! ticketProxy.error && <TicketsTable tickets={tickets} selectedTicket={selectedTicket} setSelectedTicket={setSelectedTicket} statuses={statuses}/>
+				{selectedProjectId !== 0 && !ticketProxy.working && ! ticketProxy.error && 
+				<>
+					<div className="d-flex flex-row-reverse">
+						<Button color="primary" style={{marginBottom:'5px'}} onClick={handleAddClick}>
+							Add
+						</Button>{" "}
+					</div>
+					<TicketsTable tickets={tickets} selectedTicket={selectedTicket} setSelectedTicket={setSelectedTicket}/>
+				</>
 				}
 			</Col>
 			<Col sm={6} xs={12}>

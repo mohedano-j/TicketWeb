@@ -13,8 +13,6 @@ namespace Tickets.Services.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Ticket> entity)
         {
-            entity.Property(e => e.TicketId).ValueGeneratedNever();
-
             entity.Property(e => e.DateCreated).HasColumnType("datetime");
 
             entity.Property(e => e.DateUpdated).HasColumnType("datetime");

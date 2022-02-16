@@ -16,6 +16,9 @@ module.exports = {
 		publicPath: "/",
 		filename: "bundle.[contenthash].js",
 	},
+	performance : {
+		hints : false
+	},    
 	plugins: [
 		// Display bundle stats
 		//new webpackBundleAnalyzer.BundleAnalyzerPlugin({ analyzerMode: "static" }),
@@ -54,11 +57,8 @@ module.exports = {
 
 	module: {
 		rules: [
-			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-			{ test: /\.tsx?$/, loader: "babel-loader" },
 			{
 				test: /\.(js|jsx|ts|tsx)$/,
-				exclude: /node_modules/,
 				use: ["babel-loader"],
 			},
 			{

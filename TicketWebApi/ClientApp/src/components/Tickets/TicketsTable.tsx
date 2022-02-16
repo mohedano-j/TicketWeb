@@ -5,20 +5,20 @@ import { Ticket, Status, Employee } from "../../models";
 export type TicketsTableProps= {
     /*  This indicates if the elements has been touched. From formik */
     tickets?: Ticket[] | null;
-    statuses?: Status[] | null;
     selectedTicket?: Ticket | null;
     setSelectedTicket: Dispatch<SetStateAction<Ticket | null | undefined>>;
   };
 
 export const TicketsTable = (props: TicketsTableProps) => {
-    const {tickets, statuses, selectedTicket, setSelectedTicket} = props;
+    const {tickets, selectedTicket, setSelectedTicket} = props;
 
     const columns = [
         { field: 'ticketId', headerName: 'ID', width: 50 },
         { field: 'title', headerName: 'Title', width: 180 },
         { field: 'description', headerName: 'Description', width: 250 },
-        { field: 'status', headerName: 'Status', width: 100,  valueGetter: (params: { row: { statusCode: string; } } ) => statuses?.find(s=>s.statusCode === params.row.statusCode)?.statusDesc },
-        { field: 'employee', headerName: 'Assigned To', width: 160,  valueGetter: (params: { row: { employee: Employee } } ) => params.row.employee.firstName + " " + params.row.employee.lastName}
+        { field: 'status', headerName: 'Status', width: 150,  valueGetter: (params: { row: { status: Status } } ) =>  params.row.status.statusDesc },
+        { field: 'employee', headerName: 'Assigned To', width: 160,  
+          valueGetter: (params: { row: { employee: Employee } } ) => params.row.employee ? params.row.employee.firstName + " " + params.row.employee.lastName : "Unassigned"}
       ];
       
       if (tickets === undefined || tickets == null || tickets?.length === 0  ) return  <div>Tickets not found.</div>;

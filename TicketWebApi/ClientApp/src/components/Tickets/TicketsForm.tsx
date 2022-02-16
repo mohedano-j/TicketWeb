@@ -31,7 +31,7 @@ export const TicketsForm = ({ticket, handleSave, statuses, employees}: TicketsFo
               ticketId: ticket.ticketId ?? 0,
               title: ticket.title ?? "",
               statusCode: ticket.statusCode ?? "T",
-              employeeId: ticket.employeeId?? 0,
+              employeeId: ticket.employeeId?? undefined,
               description: ticket.description ?? "",
             }}
             onSubmit={(values, { setSubmitting }) => {
@@ -105,11 +105,14 @@ export const TicketsForm = ({ticket, handleSave, statuses, employees}: TicketsFo
                             <Input
                             type="select"
                             name="employeeId"
-                            value={values.employeeId}
+                            value={values.employeeId ?? undefined}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             className={errors.employeeId ? " is-invalid" : ""}
                             >
+                              <option key={0} value={0}>
+                                Unassigned
+                              </option>
                                 {employees &&
                                     employees.map((employee: Employee) =>
                                     employee.employeeId ? (
@@ -125,7 +128,7 @@ export const TicketsForm = ({ticket, handleSave, statuses, employees}: TicketsFo
                 </Row>
                 <Row>
                     <Col> 
-                        <Button color="primary" style={{marginTop:'5px'}} type="submit" disabled={isSubmitting}>
+                        <Button color="primary" style={{marginTop:'5px'}} type="submit">
                         Save
                         </Button>{" "}
                     </Col>

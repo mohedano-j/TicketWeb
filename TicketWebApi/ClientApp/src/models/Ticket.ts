@@ -111,7 +111,7 @@ export interface Ticket {
      * @type {Status}
      * @memberof Ticket
      */
-    statusCodeNavigation?: Status;
+    status?: Status;
 }
 
 export function TicketFromJSON(json: any): Ticket {
@@ -136,7 +136,7 @@ export function TicketFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ti
         'employeeId': !exists(json, 'employeeId') ? undefined : json['employeeId'],
         'employee': !exists(json, 'employee') ? undefined : EmployeeFromJSON(json['employee']),
         'project': !exists(json, 'project') ? undefined : ProjectFromJSON(json['project']),
-        'statusCodeNavigation': !exists(json, 'statusCodeNavigation') ? undefined : StatusFromJSON(json['statusCodeNavigation']),
+        'status': !exists(json, 'status') ? undefined : StatusFromJSON(json['status']),
     };
 }
 
@@ -161,7 +161,7 @@ export function TicketToJSON(value?: Ticket | null): any {
         'employeeId': value.employeeId,
         'employee': EmployeeToJSON(value.employee),
         'project': ProjectToJSON(value.project),
-        'statusCodeNavigation': StatusToJSON(value.statusCodeNavigation),
+        'status': StatusToJSON(value.status),
     };
 }
 
