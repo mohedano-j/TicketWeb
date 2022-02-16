@@ -15,7 +15,7 @@
 import { exists, mapValues } from '../runtime';
 import {
     Ticket,
-    TicketFromJSON,
+    TicketFromJSON, 
     TicketFromJSONTyped,
     TicketToJSON,
 } from './';

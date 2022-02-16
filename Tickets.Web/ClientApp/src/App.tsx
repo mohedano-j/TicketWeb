@@ -8,12 +8,12 @@ import { Layout, Spinner } from "./components";
 import AppRoutes from "./AppRoutes";
 
 export const App = () => {
-	return (
-		<>
-			<ToastContainer />
-			<Layout>
-				<AppRoutes />
-			</Layout>
-		</>
-	);
+  return (
+    <>
+      <ToastContainer />
+      <Layout>
+        <AppRoutes />
+      </Layout>
+    </>
+  );
 };

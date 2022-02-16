@@ -7,8 +7,8 @@ import "./index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>,
-	document.getElementById("root")
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
