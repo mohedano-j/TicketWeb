@@ -25,21 +25,21 @@ namespace Tickets.Web.Controllers
 
         // POST api/<TicketsController>
         [HttpPost]
-        public async Task<Ticket> Post(Ticket ticket)
+        public async Task<Ticket> PostAsync(Ticket ticket)
         {
             return await _ticketService.AddAsync(ticket);
         }
 
         // PUT api/<TicketsController>/5
         [HttpPut]
-        public async Task<Ticket> Put(Ticket ticket)
+        public async Task<Ticket> PutAsync(Ticket ticket)
         {
             return await _ticketService.EditAsync(ticket);
         }
 
         // DELETE api/<TicketsController>
         [HttpDelete]
-        public async Task<Ticket> Delete(Ticket ticket)
+        public async Task<Ticket> DeleteAsync(Ticket ticket)
         {
             return await _ticketService.DeleteAsync(ticket);
         }

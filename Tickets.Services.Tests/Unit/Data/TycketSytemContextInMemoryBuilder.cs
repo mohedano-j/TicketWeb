@@ -19,9 +19,10 @@ namespace Tickets.Services.Tests.Unit
             services.AddEntityFrameworkInMemoryDatabase();
 
             var _contextOptions = new DbContextOptionsBuilder<TicketSystemContext>()
-              .UseInMemoryDatabase("TicketServiceTests")
+              .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
               .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
               .Options;
+
             var db = new TicketSystemContext(_contextOptions);
 
             db.Database.EnsureDeleted();

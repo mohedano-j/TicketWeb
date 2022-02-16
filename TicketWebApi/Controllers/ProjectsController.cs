@@ -31,21 +31,21 @@ namespace Tickets.Web.Controllers
 
         // POST api/<ProjectsController>
         [HttpPost]
-        public async Task<Project> Post(Project project)
+        public async Task<Project> PostAsync(Project project)
         {
             return await _projectService.AddAsync(project);
         }
 
         // PUT api/<ProjectsController>/5
         [HttpPut]
-        public async Task<Project> Put(Project project)
+        public async Task<Project> PutAsync(Project project)
         {
             return await _projectService.EditAsync(project);
         }
 
         // DELETE api/<ProjectsController>
         [HttpDelete]
-        public async Task<Project> Delete(Project project)
+        public async Task<Project> DeleteAsync(Project project)
         {
             return await _projectService.DeleteAsync(project);
         }
