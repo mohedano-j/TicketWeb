@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /TicketWebApi/ClientApp/build
+/Tickets.Web/ClientApp/build

@@ -23,8 +23,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tickets.Services\Tickets.Services.csproj" />
+    <ProjectReference Include="..\Tickets.Web\Tickets.Web.csproj" />
     <ProjectReference Include="..\Tickets\Tickets.csproj" />
-    <ProjectReference Include="..\TicketWebApi\Tickets.Web.csproj" />
   </ItemGroup>
 
 </Project>
