@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,16 @@ namespace Tickets.Services.Data
         public TicketRepository(TicketSystemContext db)
         {
             _db = db;
+        }
+
+        public async Task<Ticket> GetAsync(int id)
+        {
+            return await _db.Tickets.FindAsync(id);
+        }
+
+        public async Task<List<Ticket>> SearchAsync(int projectId)
+        {
+            return await _db.Tickets.Where(t => t.ProjectId == projectId).ToListAsync();
         }
 
         public async Task<Ticket> AddAsync(Ticket ticket)
@@ -57,17 +68,11 @@ namespace Tickets.Services.Data
             ticketToUpdate.TimeRemaining = ticket.TimeRemaining;
             ticketToUpdate.DateUpdated = DateTime.Now;
 
-            _db.Tickets.Update(ticket);
-
             await _db.SaveChangesAsync();
 
             return ticket;
         }
 
-        public async Task<Ticket> GetAsync(int id)
-        {
-            return await _db.Tickets.FindAsync(id);
-        }
 
         private async Task<Ticket> CheckTicketExists(Ticket ticket)
         {
