@@ -1,5 +1,5 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-
+/*
 import {
   faArrowUp,
   faArrowDown,
@@ -20,9 +20,11 @@ import {
   faTimesCircle,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+*/
 
 let icons = [];
 
+/*
 icons.push(faArrowDown);
 icons.push(faArrowUp);
 icons.push(faBars);
@@ -41,5 +43,6 @@ icons.push(faSignOutAlt);
 icons.push(faTimes);
 icons.push(faTimesCircle);
 icons.push(faUser);
+*/
 
 library.add(icons);

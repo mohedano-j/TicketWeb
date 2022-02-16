@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Spinner } from "reactstrap";
-import { faBars, faCheckCircle, faDatabase, faSignOutAlt, faTimes, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSignOutAlt, } from "@fortawesome/free-solid-svg-icons";
 
 type propsType = {
 	handleExpand: Function;
@@ -22,7 +21,7 @@ export const Header = (props: propsType) => {
 					</a>
 				</div>
 				<div className="logo">
-					<Link to="/">Former Students</Link>
+					<Link to="/">Ticket Management</Link>
 				</div>
 				<div className="navbar-collapse">
 					<ul className="ms-auto navbar-nav navbar-expand">

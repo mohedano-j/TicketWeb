@@ -9,10 +9,10 @@ namespace Tickets.Web.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly IEmployeesService _employeesService;
+        private readonly IEmployeesService _employeeService;
         public EmployeesController(IEmployeesService employeesService)
         {
-            _employeesService = employeesService;
+            _employeeService = employeesService;
         }
 
         // GET: api/<TicketsController>/search
@@ -22,7 +22,7 @@ namespace Tickets.Web.Controllers
             //Search by partial Id
             if(Int32.TryParse(searchInput, out int result))
             {
-                return await _employeesService.SearchAsync(result);
+                return await _employeeService.SearchAsync(result);
             }
 
             var names = searchInput.Split(" ", 2);
@@ -30,14 +30,14 @@ namespace Tickets.Web.Controllers
             //Search by one name
             if(names.Length == 1)
             {
-                return await _employeesService.SearchAsync(names[0]);
+                return await _employeeService.SearchAsync(names[0]);
             }
 
             //Search by 2 names
             var firstName = names[0].Trim();
             var lastName = names[1].Trim();
 
-            return await _employeesService.SearchAsync(firstName, lastName); 
+            return await _employeeService.SearchAsync(firstName, lastName); 
         }        
     }
 }

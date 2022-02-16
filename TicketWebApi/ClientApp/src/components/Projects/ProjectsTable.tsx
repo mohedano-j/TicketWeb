@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import { Project, Status } from "../../models";
 
-type propsType = {
+export type ProjectsTableProps= {
     /*  This indicates if the elements has been touched. From formik */
     projects?: Project[] | null;
     statuses?: Status[] | null;
@@ -10,7 +10,7 @@ type propsType = {
     setSelectedProject: Dispatch<SetStateAction<Project | null | undefined>>;
   };
 
-export const ProjectsTable = (props: propsType) => {
+export const ProjectsTable = (props: ProjectsTableProps) => {
     const {projects, statuses, selectedProject, setSelectedProject} = props;
 
     const columns = [

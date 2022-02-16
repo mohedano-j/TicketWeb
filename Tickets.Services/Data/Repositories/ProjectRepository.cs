@@ -65,7 +65,7 @@ namespace Tickets.Services.Data
 
         public async Task<List<Project>> GetAsync()
         {
-            return await _db.Projects.Include(s=>s.Status).ToListAsync();
+            return await _db.Projects.ToListAsync();
         }
 
         private async Task<Project> CheckProjectExists(Project project)

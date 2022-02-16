@@ -7,18 +7,18 @@ import { InputError } from "..";
 import { useNavigate } from "react-router";
 
 
-type Props = {
+export type ProjectsFormProps = {
   project: Project;
   handleSave?: any;
   statuses?: Status[] | null;
 };
 
-export const ProjectsForm = ({project, handleSave, statuses}: Props) => {
+export const ProjectsForm = ({project, handleSave, statuses}: ProjectsFormProps) => {
 
   const isNew = project.projectId === 0;
-  const navigate = useNavigate();
 
   const handleSeeTicketsClick = ()=> {
+        const navigate = useNavigate();
       navigate("/Tickets/" + project.projectId)
   }
 
@@ -28,7 +28,7 @@ export const ProjectsForm = ({project, handleSave, statuses}: Props) => {
       <div>
         <div className="content">
           <Formik
-            //validationSchema={NotesSchema}
+            validationSchema={ProjectSchema}
             enableReinitialize={true}
             initialValues={{
               projectId: project.projectId ?? 0,
@@ -122,8 +122,10 @@ export const ProjectsForm = ({project, handleSave, statuses}: Props) => {
 };
 
 //Define Validation Scheme
-const NotesSchema = Yup.object().shape({
-  note1: Yup.string().required("Note is required").max(1000, "Max number of characters is 255"),
+const ProjectSchema = Yup.object().shape({
+   projectName: Yup.string().required("Project Name is required").max(500, "Max number of characters is 500"),
+   description: Yup.string().max(2000, "Max number of characters is 2000"),
+   statusCode: Yup.string().required("Status is required"),
 });
 
 export default ProjectsForm;

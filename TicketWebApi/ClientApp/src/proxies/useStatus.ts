@@ -4,13 +4,13 @@ import { Observable } from "rxjs";
 
 const path = "Status";
 
-export type IStatussProxy = {
+export type IStatusProxy = {
   working: boolean;
   error: any| null;
   getList: () => Observable<Status[]>;
 };
 
-export const useStatusProxy = (): IStatussProxy => {
+export const useStatusProxy = (): IStatusProxy => {
   const http = useHttp();
 
   const getList= (): Observable<Status[]> => {

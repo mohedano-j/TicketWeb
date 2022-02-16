@@ -3,8 +3,5 @@ export * from "./ErrorContainer";
 export * from "./Header";
 export * from "./InputError";
 export * from "./Layout";
-export * from "./LimitedTextArea";
 export * from "./NavMenu";
-export * from "./ObjectTable";
 export * from "./Spinner";
-export * from "./Tables";

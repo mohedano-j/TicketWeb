@@ -13,7 +13,7 @@ module.exports = {
 	entry: { main: ["./src/index.tsx"] },
 	output: {
 		path: path.resolve(__dirname, "build"),
-		publicPath: "/campuspoint/",
+		publicPath: "/",
 		filename: "bundle.[contenthash].js",
 	},
 	plugins: [
@@ -27,7 +27,7 @@ module.exports = {
 		new webpack.DefinePlugin({
 			// This global makes sure React is built in prod mode.
 			"process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-			"process.env.API_URL": JSON.stringify("/campuspoint"),
+			"process.env.API_URL": JSON.stringify("/api"),
 		}),
 		new HtmlWebpackPlugin({
 			template: "src/index.html",
@@ -57,7 +57,7 @@ module.exports = {
 			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
 			{ test: /\.tsx?$/, loader: "babel-loader" },
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.(js|jsx|ts|tsx)$/,
 				exclude: /node_modules/,
 				use: ["babel-loader"],
 			},

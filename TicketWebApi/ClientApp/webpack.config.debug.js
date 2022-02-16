@@ -15,10 +15,6 @@ module.exports = {
 		publicPath: "/",
 		filename: "bundle.[contenthash].js",
 	},
-	devServer: {
-		publicPath: "/",
-		openPage: "/",
-	},
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: "[name].[contenthash].css",
@@ -52,11 +48,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.tsx?$/,
-				use: ["babel-loader"],
-			},
-			{
-				test: /\.(js|jsx)$/,
+				test: /\.(js|jsx|ts|tsx)$/,
 				exclude: /node_modules/,
 				use: ["babel-loader"],
 			},
