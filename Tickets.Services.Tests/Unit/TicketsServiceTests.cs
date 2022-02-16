@@ -102,7 +102,7 @@ namespace Tickets.Services.Tests
 		{
 
 			//	Arrange
-			var expected = new Ticket() { TicketId = 5, Title = "Ticket 1", StatusCode = "T", Project = 1 };
+			var expected = new Ticket() { TicketId = 5, Title = "Ticket 1", StatusCode = "T", ProjectId = 1 };
 
 			var ticketRepoMock = new Mock<ITicketRepository>();
 			ticketRepoMock.Setup(i => i.DeleteAsync(It.IsAny<Ticket>())).ReturnsAsync((Ticket x) => x);
@@ -118,6 +118,6 @@ namespace Tickets.Services.Tests
 
 			//	Assert
 			Assert.Equal(expected, result);
-		}*/
+		}
 	}
 }

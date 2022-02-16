@@ -4,10 +4,12 @@ import { ProjectsForm, ProjectsFormProps, ProjectsPage, ProjectsTable, ProjectsT
 import { Project, ProjectFromJSON, Status, StatusFromJSON } from "../../models";
 import { IProjectsProxy, IStatusProxy } from "../../proxies";
 import { of } from "rxjs";
+import * as ReactRouter from "react-router";
 
 describe('ProjectsTable', () => {
 
-  const newProject: Project = ProjectFromJSON({projectId: 0});
+  jest.spyOn(ReactRouter, 'useNavigate').mockReturnValue(jest.fn(() => jest.fn));
+
   const fakeProjects: Project[] = [ProjectFromJSON({projectId : 1, projectName: "Test 1", description: "Description 1", statusCode: "T"}),
                                     ProjectFromJSON({projectId : 2, projectName: "Test 2", description: "Description 2", statusCode: "T"})]
 
@@ -56,3 +58,4 @@ describe('ProjectsTable', () => {
       screen.getByRole("button", { name: "Save" });
     });
 });
+

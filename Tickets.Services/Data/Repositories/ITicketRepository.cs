@@ -8,6 +8,8 @@ namespace Tickets.Services.Data
 {
     public interface ITicketRepository
     {
+        Task<List<Ticket>> SearchAsync(int projectId);
+
         Task<Ticket> GetAsync(int id);
 
         Task<Ticket> AddAsync(Ticket ticket);

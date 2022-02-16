@@ -10,6 +10,8 @@ namespace Tickets.Services
     {
         Task<Employee> GetAsync(int id);
 
+        Task<List<Employee>> GetAsync();
+
         Task<List<Employee>> SearchAsync(int partialId);
 
         Task<List<Employee>> SearchAsync(string name);

@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Project, ProjectFromJSON, Status } from "../../models";
+import { Ticket, TicketFromJSON, Status, Employee } from "../../models";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { FormGroup, Form, Label, Input, Row, Col, Button } from "reactstrap";
 import { InputError } from "..";
-import { useNavigate } from "react-router";
 
 
-export type ProjectsFormProps = {
-  project: Project;
+export type TicketsFormProps = {
+  ticket: Ticket;
   handleSave?: any;
   statuses?: Status[] | null;
+  employees?: Employee[] | null
 };
 
-export const ProjectsForm = ({project, handleSave, statuses}: ProjectsFormProps) => {
+export const TicketsForm = ({ticket, handleSave, statuses, employees}: TicketsFormProps) => {
 
-  const isNew = project.projectId === 0;
-  const navigate = useNavigate();
+  const isNew = ticket.ticketId === 0;
 
-  const handleSeeTicketsClick = ()=> {
-      navigate("/Tickets/" + project.projectId)
-  }
 
   //Form logic
   return (
@@ -28,41 +24,43 @@ export const ProjectsForm = ({project, handleSave, statuses}: ProjectsFormProps)
       <div>
         <div className="content">
           <Formik
-            validationSchema={ProjectSchema}
+            validationSchema={TicketSchema}
             enableReinitialize={true}
             initialValues={{
-              projectId: project.projectId ?? 0,
-              projectName: project.projectName ?? "",
-              statusCode: project.statusCode ?? "T",
-              description: project.description ?? "",
+              projectId: ticket.projectId,
+              ticketId: ticket.ticketId ?? 0,
+              title: ticket.title ?? "",
+              statusCode: ticket.statusCode ?? "T",
+              employeeId: ticket.employeeId?? 0,
+              description: ticket.description ?? "",
             }}
             onSubmit={(values, { setSubmitting }) => {
-                handleSave(ProjectFromJSON(values));
+                handleSave(TicketFromJSON(values));
             }}
           >
             {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
               <Form onSubmit={handleSubmit}>
-                {isNew ? <strong>Add Project</strong> : <strong>Edit Project</strong>}
+                {isNew ? <strong>Add Ticket</strong> : <strong>Edit Ticket</strong>}
                 <Row>
                     <Col xs={12}>
                         <FormGroup>
-                            <Label>Project Name</Label>
+                            <Label>Ticket Name</Label>
                             <Input
                             type="text"
-                            name="projectName"
-                            value={values.projectName}
+                            name="title"
+                            value={values.title}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={errors.projectName ? " is-invalid" : ""}
+                            className={errors.title ? " is-invalid" : ""}
                             />
-                            <InputError touched={touched.projectName} error={errors.projectName} />
+                            <InputError touched={touched.title} error={errors.title} />
                         </FormGroup>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12}>
                         <FormGroup>
-                            <Label>Project Description</Label>
+                            <Label>Ticket Description</Label>
                             <Input
                             type="textarea"
                             name="description"
@@ -101,15 +99,35 @@ export const ProjectsForm = ({project, handleSave, statuses}: ProjectsFormProps)
                     </Col>
                 </Row>
                 <Row>
+                    <Col xs={12}>
+                        <FormGroup>
+                            <Label>Assigned To</Label>
+                            <Input
+                            type="select"
+                            name="employeeId"
+                            value={values.employeeId}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={errors.employeeId ? " is-invalid" : ""}
+                            >
+                                {employees &&
+                                    employees.map((employee: Employee) =>
+                                    employee.employeeId ? (
+                                        <option key={employee.employeeId} value={employee.employeeId}>
+                                            {employee.firstName + " " + employee.lastName}
+                                        </option>
+                                        ) : null
+                                )}
+                            </Input>
+                            <InputError touched={touched.statusCode} error={errors.statusCode} />
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row>
                     <Col> 
                         <Button color="primary" style={{marginTop:'5px'}} type="submit" disabled={isSubmitting}>
                         Save
                         </Button>{" "}
-                        {!isNew && 
-                            <Button color="primary" style={{marginTop:'5px'}} disabled={isSubmitting} onClick={handleSeeTicketsClick} >
-                            See Tickets
-                            </Button>
-                        }
                     </Col>
                 </Row>
               </Form>
@@ -122,11 +140,11 @@ export const ProjectsForm = ({project, handleSave, statuses}: ProjectsFormProps)
 };
 
 //Define Validation Scheme
-const ProjectSchema = Yup.object().shape({
-   projectName: Yup.string().required("Project Name is required").max(500, "Max number of characters is 500"),
+const TicketSchema = Yup.object().shape({
+   title: Yup.string().required("Title is required").max(500, "Max number of characters is 500"),
    description: Yup.string().max(2000, "Max number of characters is 2000"),
    statusCode: Yup.string().required("Status is required"),
 });
 
-export default ProjectsForm;
+export default TicketsForm;
 

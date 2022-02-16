@@ -5,19 +5,18 @@ import { Project, Status } from "../../models";
 export type ProjectsTableProps= {
     /*  This indicates if the elements has been touched. From formik */
     projects?: Project[] | null;
-    statuses?: Status[] | null;
     selectedProject?: Project | null;
     setSelectedProject: Dispatch<SetStateAction<Project | null | undefined>>;
   };
 
 export const ProjectsTable = (props: ProjectsTableProps) => {
-    const {projects, statuses, selectedProject, setSelectedProject} = props;
+    const {projects, selectedProject, setSelectedProject} = props;
 
     const columns = [
         { field: 'projectId', headerName: 'ID', width: 70 },
         { field: 'projectName', headerName: 'Project Name', width: 130 },
         { field: 'description', headerName: 'Description', width: 350 },
-        { field: 'status', headerName: 'Status', width: 150,  valueGetter: (params: { row: { statusCode: string; } } ) => statuses?.find(s=>s.statusCode === params.row.statusCode)?.statusDesc }
+        { field: 'status', headerName: 'Status', width: 150,  valueGetter: (params: { row: { status: Status } } ) =>  params.row.status.statusDesc }
       ];
       
       if (projects === undefined || projects == null || projects?.length === 0  ) return  <div>Projects not found.</div>;

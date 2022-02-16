@@ -47,6 +47,32 @@ namespace Tickets.Services.Tests.Unit.Data
 		}
 
 		[Fact]
+		public async void GetAsyncList()
+		{
+			//	Arrange
+			var data = new List<Employee>() {
+				new Employee{ EmployeeId = 5, FirstName = "Joe", LastName = "Doe" },
+				new Employee { EmployeeId = 50, FirstName = "Mary", LastName="Smith"},
+				new Employee { EmployeeId = 60, FirstName = "Luis", LastName="Smith"}
+			};
+
+			var db = GetInMemoryDbContext();
+
+			db.AddRange(data);
+
+			db.SaveChanges();
+
+			var repository = new EmployeeRepository(db);
+
+
+			//	Act
+			var result = await repository.GetAsync();
+
+			Assert.Equal(3, result.Count);
+			Assert.Equal("Mary", result[2].FirstName);
+		}
+
+		[Fact]
 		public async void SearchAsyncByPartialId()
 		{
 			//	Arrange

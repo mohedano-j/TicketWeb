@@ -44,7 +44,7 @@ namespace Tickets.Services.Data.Configurations
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tickets_Projects");
 
-            entity.HasOne(d => d.StatusCodeNavigation).WithMany()
+            entity.HasOne(d => d.Status).WithMany()
                 .HasForeignKey(d => d.StatusCode)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tickets_Status");

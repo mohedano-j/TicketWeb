@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Tickets.Services;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Tickets.Web.Controllers
 {
@@ -13,6 +12,13 @@ namespace Tickets.Web.Controllers
         public EmployeesController(IEmployeesService employeesService)
         {
             _employeeService = employeesService;
+        }
+
+        // GET: api/<TicketsController>/
+        [HttpGet()]
+        public async Task<List<Employee>> GetAsync()
+        {
+            return await _employeeService.GetAsync();
         }
 
         // GET: api/<TicketsController>/search

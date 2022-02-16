@@ -17,7 +17,13 @@ namespace Tickets.Services.Tests.Unit.Data
 		public TicketSystemContext GetInMemoryDbContext()
         {
             TicketSystemContext db = TycketSytemContextInMemoryBuilder.BuildInMemoryDbContext();
-            return db;
+			// Add Statused. This is needed to get navigation propertie
+			var statuses = new List<Status>() { new Status { StatusCode = "T", StatusDesc= "To Do" },
+				new Status { StatusCode = "D", StatusDesc= "Done" } };
+
+			db.AddRange(statuses);
+
+			return db;
         }
 
 

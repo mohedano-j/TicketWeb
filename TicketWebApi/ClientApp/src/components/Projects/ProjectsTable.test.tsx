@@ -17,7 +17,6 @@ describe('ProjectsTable', () => {
         projects: [ProjectFromJSON({projectId : 1, projectName: "Test 1", description: "Description 1", statusCode: "T"}),
                   ProjectFromJSON({projectId : 2, projectName: "Test 2", description: "Description 2", statusCode: "T"})],
         setSelectedProject: mockSetSelected,
-        statuses: [StatusFromJSON({statusCode: "T", statusDesc: "To Do"}), StatusFromJSON({statusCode: "D", statusDesc: "Done"})]
       };
     
       //Act
@@ -36,7 +35,6 @@ describe('ProjectsTable', () => {
       const props: ProjectsTableProps = {
         projects: [],
         setSelectedProject: mockSetSelected,
-        statuses: [StatusFromJSON({statusCode: "T", statusDesc: "To Do"}), StatusFromJSON({statusCode: "D", statusDesc: "Done"})]
       };
     
       //Act
@@ -55,7 +53,6 @@ describe('ProjectsTable', () => {
         projects: [ProjectFromJSON({projectId : 1, projectName: "Test 1", description: "Description 1", statusCode: "T"}),
                     ProjectFromJSON({projectId : 2, projectName: "Test 2", description: "Description 2", statusCode: "T"})],
         setSelectedProject: mockSetSelected,
-        statuses: [StatusFromJSON({statusCode: "T", statusDesc: "To Do"}), StatusFromJSON({statusCode: "D", statusDesc: "Done"})]
       };
     
       //Act
@@ -67,10 +64,5 @@ describe('ProjectsTable', () => {
 
       //Assert
       expect(mockSetSelected).toHaveBeenCalledTimes(1);
-
-
-
     });
-
-
 });

@@ -18,6 +18,16 @@ namespace Tickets.Services
             _projectsService = projectsService;
         }
 
+        public async Task<Ticket> GetAsync(int id)
+        {
+            return await _ticketRepository.GetAsync(id);
+        }
+
+        public async Task<List<Ticket>> SearchAsync(int projectId)
+        {
+            return await _ticketRepository.SearchAsync(projectId);
+        }
+
         public async Task<Ticket> AddAsync(Ticket ticket)
         {
             await CheckProjectExists(ticket);
@@ -34,11 +44,6 @@ namespace Tickets.Services
         {
             await CheckProjectExists(ticket);
             return await _ticketRepository.EditAsync(ticket);
-        }
-
-        public async Task<Ticket> GetAsync(int id)
-        {
-            return await _ticketRepository.GetAsync(id);
         }
 
         private async Task CheckProjectExists(Ticket ticket)

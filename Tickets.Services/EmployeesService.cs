@@ -21,6 +21,11 @@ namespace Tickets.Services
             return await _employeeRepository.GetAsync(id);
         }
 
+        public async Task<List<Employee>> GetAsync()
+        {
+            return await _employeeRepository.GetAsync();
+        }
+
         public async Task<List<Employee>> SearchAsync(int partialId)
         {
             return await _employeeRepository.SearchAsync(partialId);

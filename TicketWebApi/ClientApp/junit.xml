@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="0" errors="0" time="13.36">
-  <testsuite name="ProjectsForm" errors="0" failures="0" skipped="0" timestamp="2022-02-16T05:14:46" time="7.353" tests="3">
-    <testcase classname="ProjectsForm ProjectForm when rendered" name="ProjectsForm ProjectForm when rendered" time="0.118">
+<testsuites name="jest tests" tests="8" failures="0" errors="0" time="10.12">
+  <testsuite name="ProjectsForm" errors="0" failures="0" skipped="0" timestamp="2022-02-16T20:00:13" time="6.252" tests="3">
+    <testcase classname="ProjectsForm ProjectForm when rendered" name="ProjectsForm ProjectForm when rendered" time="0.082">
     </testcase>
-    <testcase classname="ProjectsForm ProjectForm when click save, validate form" name="ProjectsForm ProjectForm when click save, validate form" time="0.239">
+    <testcase classname="ProjectsForm ProjectForm when click save, validate form" name="ProjectsForm ProjectForm when click save, validate form" time="0.192">
     </testcase>
-    <testcase classname="ProjectsForm ProjectForm when click save, calls handle save" name="ProjectsForm ProjectForm when click save, calls handle save" time="0.08">
-    </testcase>
-  </testsuite>
-  <testsuite name="ProjectsTable" errors="0" failures="0" skipped="0" timestamp="2022-02-16T05:14:46" time="8.332" tests="3">
-    <testcase classname="ProjectsTable ProjectTable when rendered" name="ProjectsTable ProjectTable when rendered" time="0.83">
-    </testcase>
-    <testcase classname="ProjectsTable ProjectTable when rendered then empty" name="ProjectsTable ProjectTable when rendered then empty" time="0.011">
-    </testcase>
-    <testcase classname="ProjectsTable ProjectTable when click, then call setSelected" name="ProjectsTable ProjectTable when click, then call setSelected" time="0.6">
+    <testcase classname="ProjectsForm ProjectForm when click save, calls handle save" name="ProjectsForm ProjectForm when click save, calls handle save" time="0.067">
     </testcase>
   </testsuite>
-  <testsuite name="ProjectsTable" errors="0" failures="0" skipped="0" timestamp="2022-02-16T05:14:46" time="10.596" tests="2">
-    <testcase classname="ProjectsTable ProjectsPage when rendered" name="ProjectsTable ProjectsPage when rendered" time="0.11">
+  <testsuite name="ProjectsTable" errors="0" failures="0" skipped="0" timestamp="2022-02-16T20:00:13" time="6.839" tests="3">
+    <testcase classname="ProjectsTable ProjectTable when rendered" name="ProjectsTable ProjectTable when rendered" time="0.667">
     </testcase>
-    <testcase classname="ProjectsTable ProjectsPage when click Add, display form" name="ProjectsTable ProjectsPage when click Add, display form" time="0.315">
+    <testcase classname="ProjectsTable ProjectTable when rendered then empty" name="ProjectsTable ProjectTable when rendered then empty" time="0.009">
+    </testcase>
+    <testcase classname="ProjectsTable ProjectTable when click, then call setSelected" name="ProjectsTable ProjectTable when click, then call setSelected" time="0.288">
+    </testcase>
+  </testsuite>
+  <testsuite name="ProjectsTable" errors="0" failures="0" skipped="0" timestamp="2022-02-16T20:00:13" time="8.501" tests="2">
+    <testcase classname="ProjectsTable ProjectsPage when rendered" name="ProjectsTable ProjectsPage when rendered" time="0.088">
+    </testcase>
+    <testcase classname="ProjectsTable ProjectsPage when click Add, display form" name="ProjectsTable ProjectsPage when click Add, display form" time="0.254">
     </testcase>
   </testsuite>
 </testsuites>

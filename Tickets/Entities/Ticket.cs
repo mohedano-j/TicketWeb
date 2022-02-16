@@ -35,6 +35,6 @@ namespace Tickets
         public virtual Project Project { get; set; }
         
         [ForeignKey(nameof(StatusCode))]
-        public virtual Status StatusCodeNavigation { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

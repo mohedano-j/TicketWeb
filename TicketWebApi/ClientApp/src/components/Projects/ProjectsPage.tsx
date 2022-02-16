@@ -98,7 +98,7 @@ export const ProjectsPage = () => {
 						Add
 					</Button>{" "}
 				</div>
-				<ProjectsTable projects={projects} selectedProject={selectedProject} setSelectedProject={setSelectedProject} statuses={statuses}/>
+				<ProjectsTable projects={projects} selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>
 			</Col>
 			<Col sm={6} xs={12}>
 				{selectedProject && <ProjectsForm project={selectedProject} handleSave={handleSave} statuses={statuses}/>}

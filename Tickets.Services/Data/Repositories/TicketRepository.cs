@@ -17,12 +17,12 @@ namespace Tickets.Services.Data
 
         public async Task<Ticket> GetAsync(int id)
         {
-            return await _db.Tickets.FindAsync(id);
+            return await _db.Tickets.Include(t => t.Status).Include(t=>t.Employee).FirstOrDefaultAsync(t=>t.TicketId == id);
         }
 
         public async Task<List<Ticket>> SearchAsync(int projectId)
         {
-            return await _db.Tickets.Where(t => t.ProjectId == projectId).ToListAsync();
+            return await _db.Tickets.Where(t => t.ProjectId == projectId).Include(t => t.Status).Include(t => t.Employee).ToListAsync();
         }
 
         public async Task<Ticket> AddAsync(Ticket ticket)
@@ -39,7 +39,10 @@ namespace Tickets.Services.Data
 
             await _db.SaveChangesAsync();
 
-            return ticket;
+            //Getting value to recalculate include properties.
+            var result = await GetAsync(ticket.TicketId);
+
+            return result;
         }
 
         public async Task<Ticket> DeleteAsync(Ticket ticket)
@@ -70,13 +73,16 @@ namespace Tickets.Services.Data
 
             await _db.SaveChangesAsync();
 
-            return ticket;
+            //Getting value to recalculate include properties.
+            var result = await GetAsync(ticketToUpdate.TicketId);
+
+            return result;
         }
 
 
         private async Task<Ticket> CheckTicketExists(Ticket ticket)
         {
-            var result = await _db.Tickets.FindAsync(ticket.TicketId);
+            var result = await GetAsync(ticket.TicketId);
 
             if (result == null)
             {

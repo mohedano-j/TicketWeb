@@ -29,7 +29,10 @@ namespace Tickets.Services.Data
 
             await _db.SaveChangesAsync();
 
-            return project;
+            //Getting value to recalculate include properties.
+            var result = await GetAsync(project.ProjectId);
+
+            return result;
         }
 
         public async Task<Project> DeleteAsync(Project project)
@@ -55,22 +58,25 @@ namespace Tickets.Services.Data
 
             await _db.SaveChangesAsync();
 
-            return projectToEdit;
+            //Getting value to recalculate include properties.
+            var result = await GetAsync(projectToEdit.ProjectId);
+
+            return result;
         }
 
         public async Task<Project> GetAsync(int id)
         {
-            return await _db.Projects.FindAsync(id);
+            return await _db.Projects.Include(p => p.Status).FirstOrDefaultAsync(p => p.ProjectId == id);
         }
 
         public async Task<List<Project>> GetAsync()
         {
-            return await _db.Projects.ToListAsync();
+            return await _db.Projects.Include(p=>p.Status).ToListAsync();
         }
 
         private async Task<Project> CheckProjectExists(Project project)
         {
-            var result = await _db.Projects.FindAsync(project.ProjectId);
+            var result = await GetAsync(project.ProjectId);
             if (result == null)
             {
                 throw new ApplicationException("Project not found.");

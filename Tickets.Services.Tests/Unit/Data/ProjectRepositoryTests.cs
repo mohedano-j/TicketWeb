@@ -17,7 +17,14 @@ namespace Tickets.Services.Tests.Unit.Data
 		public TicketSystemContext GetInMemoryDbContext()
         {
             TicketSystemContext db = TycketSytemContextInMemoryBuilder.BuildInMemoryDbContext();
-            return db;
+
+			// Add Statused. This is needed to get navigation propertie
+			var statuses = new List<Status>() { new Status { StatusCode = "T", StatusDesc= "To Do" },
+				new Status { StatusCode = "D", StatusDesc= "Done" } };
+
+			db.AddRange(statuses);
+
+			return db;
         }
 
 
@@ -37,8 +44,6 @@ namespace Tickets.Services.Tests.Unit.Data
 			db.SaveChanges();
 
 			var repository = new ProjectRepository(db);
-
-
 			//	Act
 			var result = await repository.GetAsync(5);
 
@@ -55,6 +60,9 @@ namespace Tickets.Services.Tests.Unit.Data
 				new Project() { ProjectId = 6, ProjectName = "Project 2", StatusCode = "T" },
 				new Project() { ProjectId = 7, ProjectName = "Project 3", StatusCode = "T" }
 			};
+
+			var statuses = new List<Status>() { new Status { StatusCode = "T", StatusDesc= "To Do" },
+				new Status { StatusCode = "D", StatusDesc= "Done" } };
 
 			var db = GetInMemoryDbContext();
 
