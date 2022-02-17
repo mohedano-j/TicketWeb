@@ -11,9 +11,6 @@ type propsType = {
 export const NavMenu = (props: propsType) => {
   const { expanded } = props;
 
-  const { perm } = useParams<{ perm: string }>();
-  const _history = useNavigate();
-
   if (expanded) return <></>;
 
   return (
@@ -22,6 +19,9 @@ export const NavMenu = (props: propsType) => {
         <ul className="sidebar-nav">
           <li className="sidebar-header">
             <Link to="/">Home</Link>
+          </li>
+          <li className="sidebar-header">
+            <Link to="/Issues">Issues</Link>
           </li>
           <li className="sidebar-header">
             <Link to="/Projects">Projects</Link>
