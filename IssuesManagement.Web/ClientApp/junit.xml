@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="11.415">
+  <testsuite name="ProjectsForm" errors="0" failures="0" skipped="2" timestamp="2022-02-17T06:19:28" time="9.822" tests="3">
+    <testcase classname="ProjectsForm ProjectsForm when rendered" name="ProjectsForm ProjectsForm when rendered" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ProjectsForm ProjectsForm when click save and required field is empty, then save is not called" name="ProjectsForm ProjectsForm when click save and required field is empty, then save is not called" time="0.217">
+    </testcase>
+    <testcase classname="ProjectsForm ProjectsForm when click save, calls handle save" name="ProjectsForm ProjectsForm when click save, calls handle save" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+</testsuites>
