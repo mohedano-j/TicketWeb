@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Tickets.Services.Data;
 using Tickets.Services;
 using System.Text.Json.Serialization;
+using IssuesManagement.Services.Data;
+using IssuesManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("TicketSystemDb");
 builder.Services.AddDbContext<TicketSystemContext>(options =>
     options.UseSqlServer(connectionString));
+
+var connectionString2 = builder.Configuration.GetConnectionString("IssuesSystemDb");
+builder.Services.AddDbContext<IssuesDbContext>(options =>
+    options.UseSqlServer(connectionString2));
 
 //TODO Handle Authentication
 /*
@@ -27,12 +33,14 @@ builder.Services.AddAuthentication()
 //Dependency Injection
 
 //repos
+builder.Services.AddTransient<IIssuesRepository, IssuesRepository>();
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
 builder.Services.AddTransient<IStatusRepository, StatusRepository>();
 builder.Services.AddTransient<ITicketRepository, TicketRepository>();
 
 //services
+builder.Services.AddTransient<IIssuesService, IssuesService>();
 builder.Services.AddTransient<IEmployeesService, EmployeesService>();
 builder.Services.AddTransient<IProjectsService, ProjectsService>();
 builder.Services.AddTransient<IStatusService, StatusService>();
