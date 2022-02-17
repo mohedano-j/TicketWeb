@@ -1,5 +1,5 @@
 import React from "react";
-import { Issue, IssueFromJSON } from "../../models";
+import { Issue, IssueFromJSON, User } from "../../models";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { FormGroup, Form, Label, Input, Row, Col, Button } from "reactstrap";
@@ -7,10 +7,11 @@ import { InputError } from "..";
 
 export type IssuesFormProps = {
   issue: Issue;
+  users?: User[] | null;
   handleSave?: any;
 };
 
-export const IssuesForm = ({ issue, handleSave }: IssuesFormProps) => {
+export const IssuesForm = ({ issue, users, handleSave }: IssuesFormProps) => {
   const isNew = issue.issueId === 0;
 
   //Form logic
@@ -26,6 +27,7 @@ export const IssuesForm = ({ issue, handleSave }: IssuesFormProps) => {
               title: issue.title ?? "",
               statusOpened: issue.statusOpened ?? true,
               description: issue.description ?? "",
+              assignedTo: issue.assignedTo ?? 0,
             }}
             onSubmit={(values, { setSubmitting }) => {
               handleSave(IssueFromJSON(values));
@@ -75,6 +77,37 @@ export const IssuesForm = ({ issue, handleSave }: IssuesFormProps) => {
                       </Input>
                       <InputError touched={touched.statusOpened} error={errors.statusOpened} />
                     </FormGroup>
+                    <Row>
+                      <Col xs={12}>
+                        <FormGroup>
+                          <Label>Assigned To</Label>
+                          <Input
+                            type="select"
+                            name="assignedTo"
+                            value={values.assignedTo ?? undefined}
+                            onChange={(e) => {
+                              const userId = parseInt(e.target.value, 10);
+                              setFieldValue("assignedTo", userId);
+                            }}
+                            onBlur={handleBlur}
+                            className={errors.assignedTo ? " is-invalid" : ""}
+                          >
+                            <option key={0} value={0}>
+                              Unassigned
+                            </option>
+                            {users &&
+                              users.map((user: User) =>
+                                user.userId ? (
+                                  <option key={user.userId} value={user.userId}>
+                                    {user.firstName + " " + user.lastName}
+                                  </option>
+                                ) : null
+                              )}
+                          </Input>
+                          <InputError touched={touched.assignedTo} error={errors.assignedTo} />
+                        </FormGroup>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
                 <Row>

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Issue, Status } from "../../models";
+import { Issue, Status, User } from "../../models";
 
 export type IssuesTableProps = {
   issues?: Issue[] | null;
@@ -12,10 +12,17 @@ export const IssuesTable = (props: IssuesTableProps) => {
   const { issues, selectedIssue, setSelectedIssue } = props;
 
   const columns = [
-    { field: "issueId", headerName: "ID", width: 70 },
-    { field: "title", headerName: "Title", width: 130 },
-    { field: "description", headerName: "Description", width: 350 },
+    { field: "issueId", headerName: "ID", width: 60 },
+    { field: "title", headerName: "Title", width: 150 },
+    { field: "description", headerName: "Description", width: 250 },
     { field: "status", headerName: "Status", width: 100 },
+    {
+      field: "assigneTo",
+      headerName: "Assigned To",
+      width: 150,
+      valueGetter: (params: { row: { assignedToNavigation: User } }) =>
+        params.row.assignedToNavigation ? params.row.assignedToNavigation.firstName + " " + params.row.assignedToNavigation.lastName : "Unassigned",
+    },
   ];
 
   if (issues === undefined || issues == null || issues?.length === 0) return <div>Issues not found.</div>;

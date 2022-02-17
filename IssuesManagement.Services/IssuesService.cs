@@ -35,5 +35,10 @@ namespace IssuesManagement.Services
         {
             return await _repo.GetAsync();
         }
+
+        public async Task<List<Issue>> SearchAsync(int userId)
+        {
+            return await _repo.SearchAsync(userId);
+        }
     }
 }

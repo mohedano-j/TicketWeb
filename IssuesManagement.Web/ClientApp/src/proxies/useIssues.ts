@@ -8,6 +8,7 @@ export type IIssuesProxy = {
   working: boolean;
   error: any | null;
   getList: () => Observable<Issue[]>;
+  search: (userId: number) => Observable<Issue[]>;
   add: (issue: Issue) => Observable<Issue>;
   edit: (issue: Issue) => Observable<Issue>;
 };
@@ -17,6 +18,10 @@ export const useIssuesProxy = (): IIssuesProxy => {
 
   const getList = (): Observable<Issue[]> => {
     return http.getList(path, null, IssueFromJSON);
+  };
+
+  const search = (userId: number): Observable<Issue[]> => {
+    return http.getList(path + "/search/" + userId, null, IssueFromJSON);
   };
 
   const add = (issue: Issue) => {
@@ -31,6 +36,7 @@ export const useIssuesProxy = (): IIssuesProxy => {
     working: http.working,
     error: http.error,
     getList,
+    search,
     add,
     edit,
   };

@@ -1,6 +1,4 @@
-﻿
-
-namespace IssuesManagement
+﻿namespace IssuesManagement
 {
     public partial class Issue
     {

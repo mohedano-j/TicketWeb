@@ -1,8 +1,8 @@
 import { act, screen, render, fireEvent } from "@testing-library/react";
 import React from "react";
 import { IssuesPage } from ".";
-import { Issue, IssueFromJSON, Status, StatusFromJSON } from "../../models";
-import { IIssuesProxy, IStatusProxy } from "../../proxies";
+import { Issue, IssueFromJSON, User, UserFromJSON } from "../../models";
+import { IIssuesProxy, IStatusProxy, IUsersProxy } from "../../proxies";
 import { of } from "rxjs";
 
 describe("IssuesTable", () => {
@@ -11,12 +11,21 @@ describe("IssuesTable", () => {
     IssueFromJSON({ issueId: 2, issueName: "Test 2", description: "Description 2", statusOpened: true, status: "Opened" }),
   ];
 
+  const fakeUsers: User[] = [UserFromJSON({ userId: 1, useName: "AAAA", firstName: "John", lastName: "Doe" }), UserFromJSON({ userId: 2, useName: "BBB", firstName: "Mary", lastName: "Doe" })];
+
   const mockIssuesProxy: IIssuesProxy = {
     working: false,
     error: null,
     add: jest.fn(),
     edit: jest.fn(),
     getList: () => of(fakeIssues),
+    search: () => of(fakeIssues),
+  };
+
+  const mockUsersProxy: IUsersProxy = {
+    working: false,
+    error: null,
+    getList: () => of(fakeUsers),
   };
 
   test("IssuesPage when rendered", () => {

@@ -8,7 +8,7 @@ namespace IssuesManagement.Services.Data
 {
     public interface IIssuesRepository
     {
-        Task<List<Issue>> SearchAsync(int employeeId);
+        Task<List<Issue>> SearchAsync(int userId);
 
         Task<List<Issue>> GetAsync();
 

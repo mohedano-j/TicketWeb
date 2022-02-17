@@ -13,6 +13,13 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    User,
+    UserFromJSON,
+    UserFromJSONTyped,
+    UserToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -45,6 +52,18 @@ export interface Issue {
     statusOpened?: boolean;
     /**
      * 
+     * @type {number}
+     * @memberof Issue
+     */
+    assignedTo?: number | null;
+    /**
+     * 
+     * @type {User}
+     * @memberof Issue
+     */
+    assignedToNavigation?: User;
+    /**
+     * 
      * @type {string}
      * @memberof Issue
      */
@@ -65,6 +84,8 @@ export function IssueFromJSONTyped(json: any, ignoreDiscriminator: boolean): Iss
         'title': json['title'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'statusOpened': !exists(json, 'statusOpened') ? undefined : json['statusOpened'],
+        'assignedTo': !exists(json, 'assignedTo') ? undefined : json['assignedTo'],
+        'assignedToNavigation': !exists(json, 'assignedToNavigation') ? undefined : UserFromJSON(json['assignedToNavigation']),
         'status': !exists(json, 'status') ? undefined : json['status'],
     };
 }
@@ -82,6 +103,8 @@ export function IssueToJSON(value?: Issue | null): any {
         'title': value.title,
         'description': value.description,
         'statusOpened': value.statusOpened,
+        'assignedTo': value.assignedTo,
+        'assignedToNavigation': UserToJSON(value.assignedToNavigation),
     };
 }
 

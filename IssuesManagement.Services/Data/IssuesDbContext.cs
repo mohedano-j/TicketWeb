@@ -21,10 +21,12 @@ namespace IssuesManagement.Services.Data
         }
 
         public virtual DbSet<Issue> Issues { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new Configurations.IssueConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.UserConfiguration());
 
             OnModelCreatingPartial(modelBuilder);
         }

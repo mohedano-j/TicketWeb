@@ -38,6 +38,7 @@ builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
 builder.Services.AddTransient<IStatusRepository, StatusRepository>();
 builder.Services.AddTransient<ITicketRepository, TicketRepository>();
+builder.Services.AddTransient<IUsersRepository, UsersRepository>();
 
 //services
 builder.Services.AddTransient<IIssuesService, IssuesService>();
@@ -45,6 +46,7 @@ builder.Services.AddTransient<IEmployeesService, EmployeesService>();
 builder.Services.AddTransient<IProjectsService, ProjectsService>();
 builder.Services.AddTransient<IStatusService, StatusService>();
 builder.Services.AddTransient<ITicketsService, TicketsService>();
+builder.Services.AddTransient<IUsersService, UsersService>();
 
 //End of Dependency Injection
 

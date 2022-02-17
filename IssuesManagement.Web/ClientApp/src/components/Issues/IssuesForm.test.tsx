@@ -1,7 +1,7 @@
 import { act, screen, render, fireEvent } from "@testing-library/react";
 import React from "react";
 import { IssuesForm, IssuesFormProps } from ".";
-import { IssueFromJSON, StatusFromJSON } from "../../models";
+import { IssueFromJSON, StatusFromJSON, UserFromJSON } from "../../models";
 
 describe("IssuesForm", () => {
   test("IssuesForm when rendered", () => {
@@ -11,6 +11,7 @@ describe("IssuesForm", () => {
     const props: IssuesFormProps = {
       issue: IssueFromJSON({ issueId: 1, title: "Test 1", description: "Description 1", statusOpened: true }),
       handleSave: mockHandleSave,
+      users: [UserFromJSON({ userId: 1, useName: "AAAA", firstName: "John", lastName: "Doe" }), UserFromJSON({ userId: 2, useName: "BBB", firstName: "Mary", lastName: "Doe" })],
     };
 
     //Act
@@ -24,6 +25,7 @@ describe("IssuesForm", () => {
     const props: IssuesFormProps = {
       issue: IssueFromJSON({ issueId: 1, title: "", description: "Description 1", statusOpened: true }),
       handleSave: mockHandleSave,
+      users: [UserFromJSON({ userId: 1, useName: "AAAA", firstName: "John", lastName: "Doe" }), UserFromJSON({ userId: 2, useName: "BBB", firstName: "Mary", lastName: "Doe" })],
     };
 
     //Act
@@ -46,6 +48,7 @@ describe("IssuesForm", () => {
     const props: IssuesFormProps = {
       issue: IssueFromJSON({ issueId: 1, title: "Issue Name", description: "Description 1", statusOpened: true }),
       handleSave: mockHandleSave,
+      users: [UserFromJSON({ userId: 1, useName: "AAAA", firstName: "John", lastName: "Doe" }), UserFromJSON({ userId: 2, useName: "BBB", firstName: "Mary", lastName: "Doe" })],
     };
 
     //Act

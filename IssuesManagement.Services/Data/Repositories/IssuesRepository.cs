@@ -26,19 +26,12 @@ namespace IssuesManagement.Services.Data
 
             await _db.SaveChangesAsync();
 
+            //Getting value to recalculate include properties.
+            var result = await GetAsync(issue.IssueId);
+
             return issue;
         }
 
-        public async Task<Issue> DeleteAsync(Issue issue)
-        {
-            var issueToDelete = await CheckIssueExists(issue);
-
-            _db.Issues.Remove(issueToDelete);
-
-            await _db.SaveChangesAsync();
-
-            return issueToDelete;
-        }
 
         public async Task<Issue> EditAsync(Issue issue)
         {
@@ -48,25 +41,29 @@ namespace IssuesManagement.Services.Data
             issueToEdit.Title = issue.Title;
             issueToEdit.Description = issue.Description;
             issueToEdit.StatusOpened = issue.StatusOpened;
+            issueToEdit.AssignedTo = issue.AssignedTo;
 
             await _db.SaveChangesAsync();
+
+            //Getting value to recalculate include properties.
+            var result = await GetAsync(issue.IssueId);
 
             return issueToEdit;
         }
 
         public async Task<Issue> GetAsync(int id)
         {
-            return await _db.Issues.FindAsync(id);
+            return await _db.Issues.Include(i=>i.AssignedToNavigation).FirstOrDefaultAsync(i=>i.IssueId == id);
         }
 
         public async Task<List<Issue>> GetAsync()
         {
-            return await _db.Issues.ToListAsync();
+            return await _db.Issues.Include(i => i.AssignedToNavigation).ToListAsync();
         }
 
-        public Task<List<Issue>> SearchAsync(int employeeId)
+        public async Task<List<Issue>> SearchAsync(int userId)
         {
-            throw new NotImplementedException();
+            return await _db.Issues.Include(i => i.AssignedToNavigation).Where(i=>i.AssignedTo == userId).ToListAsync();
         }
 
         private async Task<Issue> CheckIssueExists(Issue issue)

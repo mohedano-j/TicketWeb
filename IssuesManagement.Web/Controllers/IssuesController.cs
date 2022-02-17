@@ -19,6 +19,8 @@ namespace IssuesManagement.Web.Controllers
             return await _issueService.GetAsync();
         }
 
+      
+
         // GET: api/<IssuesController>/id
         [HttpGet("{id}")]
         public async Task<Issue> GetAsync(int id)
@@ -26,6 +28,12 @@ namespace IssuesManagement.Web.Controllers
             return await _issueService.GetAsync(id);
         }
 
+        // GET: api/<IssuesController>/search/userid
+        [HttpGet("search/{userId}")]
+        public async Task<List<Issue>> SearchAsync(int userId)
+        {
+            return await _issueService.SearchAsync(userId);
+        }
 
         // POST api/<IssuesController>
         [HttpPost]

@@ -24,6 +24,11 @@ namespace IssuesManagement.Services.Data.Configurations
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
+            entity.HasOne(d => d.AssignedToNavigation)
+                .WithMany()
+                .HasForeignKey(d => d.AssignedTo)
+                .HasConstraintName("FK_Issue_User");
+
             OnConfigurePartial(entity);
         }
 

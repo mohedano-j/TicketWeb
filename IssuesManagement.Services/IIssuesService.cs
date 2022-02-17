@@ -15,5 +15,7 @@ namespace IssuesManagement.Services
         Task<Issue> AddAsync(Issue issue);
 
         Task<Issue> EditAsync(Issue issue);
+
+        Task<List<Issue>> SearchAsync(int userId);
     }
 }
