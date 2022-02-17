@@ -13,10 +13,10 @@ namespace IssuesManagement.Services.Tests
 			//	Arrange
 			var expected = new User() { UserId = 5, FirstName = "Joe", LastName = "Doe" };
 
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.GetAsync(It.IsAny<int>())).ReturnsAsync(expected);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.GetAsync(It.IsAny<int>())).ReturnsAsync(expected);
 
-			var service = new UsersService(employeeRepoMock.Object);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.GetAsync(1);
@@ -29,9 +29,9 @@ namespace IssuesManagement.Services.Tests
 		public async void GetAsyncNull()
 		{
             //	Arrange
-            var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.GetAsync(It.IsAny<int>())).ReturnsAsync(value: null);
-			var service = new UsersService(employeeRepoMock.Object);
+            var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.GetAsync(It.IsAny<int>())).ReturnsAsync(value: null);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.GetAsync(1);
@@ -49,9 +49,9 @@ namespace IssuesManagement.Services.Tests
 				new User{ UserId = 5, FirstName = "Joe", LastName = "Doe" },
 				new User { UserId = 50, FirstName = "Mary", LastName="Smith"}
 			};
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.SearchAsync(It.IsAny<int>())).ReturnsAsync(expected);
-			var service = new UsersService(employeeRepoMock.Object);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.SearchAsync(It.IsAny<int>())).ReturnsAsync(expected);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.SearchAsync(5);
@@ -67,9 +67,9 @@ namespace IssuesManagement.Services.Tests
 			//	Arrange
 			var expected = new List<User>() {
 			};
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.SearchAsync(It.IsAny<int>())).ReturnsAsync(expected);
-			var service = new UsersService(employeeRepoMock.Object);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.SearchAsync(It.IsAny<int>())).ReturnsAsync(expected);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.SearchAsync(5);
@@ -87,9 +87,9 @@ namespace IssuesManagement.Services.Tests
 				new User{ UserId = 5, FirstName = "Joe", LastName = "Doe" },
 				new User { UserId = 50, FirstName = "Mary", LastName="Doe"}
 			};
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>())).ReturnsAsync(expected);
-			var service = new UsersService(employeeRepoMock.Object);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>())).ReturnsAsync(expected);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.SearchAsync("Doe");
@@ -106,9 +106,9 @@ namespace IssuesManagement.Services.Tests
 			var expected = new List<User>()
 			{
 			};
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>())).ReturnsAsync(expected);
-			var service = new UsersService(employeeRepoMock.Object);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>())).ReturnsAsync(expected);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.SearchAsync("Doe");
@@ -125,9 +125,9 @@ namespace IssuesManagement.Services.Tests
 			var expected = new List<User>() {
 				new User{ UserId = 5, FirstName = "Joe", LastName = "Doe" },
 			};
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(expected);
-			var service = new UsersService(employeeRepoMock.Object);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(expected);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.SearchAsync("Joe","Doe");
@@ -144,9 +144,9 @@ namespace IssuesManagement.Services.Tests
 			var expected = new List<User>()
 			{
 			};
-			var employeeRepoMock = new Mock<IUsersRepository>();
-			employeeRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(expected);
-			var service = new UsersService(employeeRepoMock.Object);
+			var userRepoMock = new Mock<IUsersRepository>();
+			userRepoMock.Setup(i => i.SearchAsync(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(expected);
+			var service = new UsersService(userRepoMock.Object);
 
 			//	Act
 			var result = await service.SearchAsync("Joe","Doe");
