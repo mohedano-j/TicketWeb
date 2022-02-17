@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Tickets.Services.Data;
-using Tickets.Services;
 using System.Text.Json.Serialization;
 using IssuesManagement.Services.Data;
 using IssuesManagement.Services;
@@ -10,13 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 // Add db context
-var connectionString = builder.Configuration.GetConnectionString("TicketSystemDb");
-builder.Services.AddDbContext<TicketSystemContext>(options =>
-    options.UseSqlServer(connectionString));
-
-var connectionString2 = builder.Configuration.GetConnectionString("IssuesSystemDb");
+var connectionString = builder.Configuration.GetConnectionString("IssuesSystemDb");
 builder.Services.AddDbContext<IssuesDbContext>(options =>
-    options.UseSqlServer(connectionString2));
+    options.UseSqlServer(connectionString));
 
 //TODO Handle Authentication
 /*
