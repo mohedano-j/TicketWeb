@@ -23,12 +23,6 @@ export const NavMenu = (props: propsType) => {
           <li className="sidebar-header">
             <Link to="/Issues">Issues</Link>
           </li>
-          <li className="sidebar-header">
-            <Link to="/Projects">Projects</Link>
-          </li>
-          <li className="sidebar-header">
-            <Link to="/Tickets">Tickets</Link>
-          </li>
         </ul>
       </div>
     </nav>

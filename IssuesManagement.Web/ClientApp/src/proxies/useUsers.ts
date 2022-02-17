@@ -10,7 +10,7 @@ export type IUsersProxy = {
   getList: () => Observable<User[]>;
 };
 
-export const useUsersProxy = (): IUserProxy => {
+export const useUsersProxy = (): IUsersProxy => {
   const http = useHttp();
 
   const getList = (): Observable<User[]> => {

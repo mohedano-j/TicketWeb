@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="11.107">
-  <testsuite name="IssuesTable" errors="0" failures="0" skipped="0" timestamp="2022-02-17T18:05:39" time="9.368" tests="2">
-    <testcase classname="IssuesTable IssuesPage when rendered" name="IssuesTable IssuesPage when rendered" time="0.089">
+<testsuites name="jest tests" tests="8" failures="0" errors="0" time="19.672">
+  <testsuite name="IssuesForm" errors="0" failures="0" skipped="0" timestamp="2022-02-17T19:47:06" time="15.584" tests="3">
+    <testcase classname="IssuesForm IssuesForm when rendered" name="IssuesForm IssuesForm when rendered" time="0.11">
     </testcase>
-    <testcase classname="IssuesTable IssuesPage when click Add, display form" name="IssuesTable IssuesPage when click Add, display form" time="0.404">
+    <testcase classname="IssuesForm IssuesForm when click save and required field is empty, then save is not called" name="IssuesForm IssuesForm when click save and required field is empty, then save is not called" time="0.255">
+    </testcase>
+    <testcase classname="IssuesForm IssuesForm when click save, calls handle save" name="IssuesForm IssuesForm when click save, calls handle save" time="0.109">
+    </testcase>
+  </testsuite>
+  <testsuite name="IssuesTable" errors="0" failures="0" skipped="0" timestamp="2022-02-17T19:47:06" time="15.69" tests="2">
+    <testcase classname="IssuesTable IssuesPage when rendered" name="IssuesTable IssuesPage when rendered" time="0.179">
+    </testcase>
+    <testcase classname="IssuesTable IssuesPage when click Add, display form" name="IssuesTable IssuesPage when click Add, display form" time="0.421">
+    </testcase>
+  </testsuite>
+  <testsuite name="IssuesTable" errors="0" failures="0" skipped="0" timestamp="2022-02-17T19:47:06" time="16.211" tests="3">
+    <testcase classname="IssuesTable IssueTable when rendered" name="IssuesTable IssueTable when rendered" time="0.799">
+    </testcase>
+    <testcase classname="IssuesTable IssueTable when rendered then empty" name="IssuesTable IssueTable when rendered then empty" time="0.008">
+    </testcase>
+    <testcase classname="IssuesTable IssueTable when click, then call setSelected" name="IssuesTable IssueTable when click, then call setSelected" time="0.315">
     </testcase>
   </testsuite>
 </testsuites>
